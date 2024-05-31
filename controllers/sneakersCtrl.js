@@ -62,6 +62,8 @@ const addToFavCtrl = async (req, res, next) => {
   }
 };
 
+
+
 module.exports = {
   sneakersController,
   sneakerByIdController,

@@ -26,14 +26,23 @@ const login = async (req, res, next) => {
         expiresIn: "1h",
       }
     );
-    res.send({ email,
-       token });
+    res.send({ email, token });
   } catch (error) {
     console.log(error);
     next(error);
   }
 };
 
+const currentUserInfo = async (req, res, next) => {
+  const { token } = req.body;
+  console.log("req.body: ", req.body);
+  const decoded = jwt.decode(token);
+  res.send({
+    data: decoded,
+  });
+};
+
 module.exports = {
   login,
+  currentUserInfo,
 };
